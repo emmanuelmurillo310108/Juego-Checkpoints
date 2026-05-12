@@ -1,0 +1,95 @@
+.root {
+    -fx-background-color: linear-gradient(
+            to bottom,
+            #1e1e2f,
+            #12121c
+    );
+}
+
+.titulo {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.subtitulo {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #d0d0ff;
+}
+
+.info-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+}
+
+.estado-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00ff99;
+}
+
+.mensaje-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #87cefa;
+}
+
+.game-button {
+    -fx-background-color: #5865f2;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+}
+
+.game-button:hover {
+    -fx-background-color: #7280ff;
+}
+
+.danger-button {
+    -fx-background-color: #d9534f;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+}
+
+.danger-button:hover {
+    -fx-background-color: #ff6b66;
+}
+
+.checkpoint-list {
+    -fx-background-radius: 12;
+    -fx-control-inner-background: #1e1e2f;
+    -fx-border-color: #5865f2;
+    -fx-border-radius: 12;
+    -fx-text-fill: white;
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.list-cell:selected {
+    -fx-background-color: #5865f2;
+}
+
+.panel-checkpoints {
+    -fx-background-color: #25253a;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: #3f3f5c;
+    -fx-border-width: 2;
+}
+
+.contenedor-principal {
+    -fx-background-color: #25253a;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: #3f3f5c;
+    -fx-border-width: 2;
+}

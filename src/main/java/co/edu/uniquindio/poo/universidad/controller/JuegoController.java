@@ -1,19 +1,41 @@
 package co.edu.uniquindio.poo.universidad.controller;
 
+import co.edu.uniquindio.poo.universidad.model.EstadoJuego;
 import co.edu.uniquindio.poo.universidad.model.Gestor;
 import co.edu.uniquindio.poo.universidad.model.Jugador;
 import co.edu.uniquindio.poo.universidad.model.Memento;
+import java.util.List;
 
 public class JuegoController {
 
     private Jugador jugador;
-    private Gestor gestor;
+    private final Gestor gestor;
 
     public JuegoController() {
-
-        jugador = new Jugador(1, 3, 0);
-
+        jugador = new Jugador();
         gestor = new Gestor();
+    }
+
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    public int cantidadCheckpoints() {
+        return gestor.cantidadCheckpoints();
+    }
+
+    public boolean checkpointsLlenos() {
+        return gestor.estaLleno();
+    }
+
+    public void reemplazarCheckpoint() {
+        gestor.eliminarMasViejo();
+        gestor.guardarCheckpoint(jugador.guardar(gestor.generarNumeroCheckpoint()));
+    }
+
+    public void reiniciarJuego() {
+        jugador = new Jugador();
+        gestor.limpiarCheckpoints();
     }
 
     public void subirNivel() {
@@ -24,36 +46,28 @@ public class JuegoController {
         jugador.perderVida();
     }
 
-    public void ganarMonedas(int cantidad) {
-        jugador.ganarMonedas(cantidad);
+    public void ganarMonedas() {
+        jugador.ganarMonedas(10);
     }
 
-    public void guardarCheckpoint() {
-
-        Memento checkpoint = jugador.guardar();
-
-        gestor.guardarCheckpoint(checkpoint);
-    }
-
-    public void restaurarCheckpoint() {
-
-        Memento checkpoint =
-                gestor.restaurarUltimoCheckpoint();
-
-        if (checkpoint != null) {
-            jugador.restaurar(checkpoint);
+    public String guardarCheckpoint() {
+        if (jugador.getEstadoJuego() == EstadoJuego.GAME_OVER) {
+            return "No puedes guardar en GAME OVER";
         }
+        gestor.guardarCheckpoint(jugador.guardar(gestor.generarNumeroCheckpoint()));
+        return "Checkpoint guardado";
     }
 
-    public String obtenerEstadoJugador() {
-        return jugador.toString();
+    public String restaurarCheckpoint(int indice) {
+        Memento checkpoint = gestor.obtenerCheckpoint(indice);
+        if (checkpoint == null) {
+            return "Checkpoint invalido";
+        }
+        jugador.restaurar(checkpoint);
+        return "Checkpoint restaurado";
     }
 
-    public int cantidadCheckpoints() {
-        return gestor.getCheckpoints().size();
-    }
-
-    public Jugador getJugador() {
-        return jugador;
+    public List<Memento> obtenerCheckpoints() {
+        return gestor.getCheckpoints();
     }
 }

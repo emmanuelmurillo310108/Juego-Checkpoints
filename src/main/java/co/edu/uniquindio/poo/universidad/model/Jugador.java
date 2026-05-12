@@ -5,66 +5,81 @@ public class Jugador {
     private int nivel;
     private int vidas;
     private int monedas;
+    private EstadoJuego estadoJuego;
 
-    public Jugador(int nivel, int vidas, int monedas) {
-        this.nivel = nivel;
-        this.vidas = vidas;
-        this.monedas = monedas;
+    public Jugador() {
+        nivel = 1;
+        vidas = 3;
+        monedas = 0;
+        estadoJuego = EstadoJuego.JUGANDO;
     }
 
     public int getNivel() {
         return nivel;
     }
 
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
-    }
-
     public int getVidas() {
         return vidas;
-    }
-
-    public void setVidas(int vidas) {
-        this.vidas = vidas;
     }
 
     public int getMonedas() {
         return monedas;
     }
 
-    public void setMonedas(int monedas) {
-        this.monedas = monedas;
+    public EstadoJuego getEstadoJuego() {
+        return estadoJuego;
     }
 
+    private boolean puedeJugar() {
 
-    public Memento guardar() {
-        return new VideoJuego(nivel, vidas, monedas);
+        return estadoJuego
+                != EstadoJuego.GAME_OVER;
+    }
+
+    public Memento guardar(int numero) {
+        return new Checkpoint(numero, nivel, vidas, monedas, estadoJuego);
     }
 
     public void restaurar(Memento memento) {
-        this.nivel = memento.getNivel();
-        this.vidas = memento.getVidas();
-        this.monedas = memento.getMonedas();
+        Checkpoint checkpoint = (Checkpoint) memento;
+        this.nivel = checkpoint.getNivel();
+        this.vidas = checkpoint.getVidas();
+        this.monedas = checkpoint.getMonedas();
+        this.estadoJuego =
+                checkpoint.getEstadoJuego();
     }
 
     public void subirNivel() {
-        nivel++;
+        if (puedeJugar()) {
+            nivel++;
+        }
+    }
+
+    public void ganarMonedas(int cantidad) {
+        if (puedeJugar()) {
+            monedas += cantidad;
+        }
     }
 
     public void perderVida() {
         if (vidas > 0) {
             vidas--;
+            if (vidas == 0) {
+                estadoJuego =
+                        EstadoJuego.GAME_OVER;
+            }
         }
-    }
-
-    public void ganarMonedas(int cantidad) {
-        monedas += cantidad;
     }
 
     @Override
     public String toString() {
-        return "Nivel: " + nivel +
-                " | Vidas: " + vidas +
-                " | Monedas: " + monedas;
+        return "Nivel: "
+                + nivel
+                + " | Vidas: "
+                + vidas
+                + " | Monedas: "
+                + monedas
+                + " | Estado: "
+                + estadoJuego;
     }
 }
