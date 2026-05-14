@@ -76,4 +76,5 @@ public class GestorTest {
             lista.add(new Checkpoint(1, 1, 1, 1, null));
         });
     }
+
 }
