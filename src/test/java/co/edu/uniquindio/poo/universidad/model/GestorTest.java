@@ -22,7 +22,6 @@ public class GestorTest {
 
     @Test
     public void testGuardarYObtenerCheckpoint() {
-        // Usamos el constructor con los 5 parámetros: numero, nivel, vidas, monedas, estado
         Checkpoint cp = new Checkpoint(1, 1, 3, 100, null);
         gestor.guardarCheckpoint(cp);
 
@@ -76,5 +75,4 @@ public class GestorTest {
             lista.add(new Checkpoint(1, 1, 1, 1, null));
         });
     }
-
 }
