@@ -27,7 +27,7 @@
                   alignment="TOP_CENTER"
                   styleClass="panel-checkpoints">
                 <padding>
-                    <Insets top="20"
+                    <Insets top="100"
                             right="20"
                             bottom="20"
                             left="20"/>
@@ -36,8 +36,8 @@
                        styleClass="subtitulo"/>
 
                 <ListView fx:id="listCheckpoints"
-                          prefWidth="300"
-                          prefHeight="420"
+                          prefWidth="370"
+                          prefHeight="280"
                           styleClass="checkpoint-list"/>
             </VBox>
             <VBox spacing="15"

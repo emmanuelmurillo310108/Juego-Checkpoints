@@ -7,40 +7,60 @@
 }
 
 .titulo {
-    -fx-font-size: 26px;
-    -fx-font-weight: bold;
+    -fx-font-family: "Press Start 2P";
+    -fx-font-size: 20px;
     -fx-text-fill: white;
+    -fx-effect: dropshadow(
+            gaussian,
+            #5865f2,
+            12,
+            0.7,
+            0,
+            0
+    );
 }
 
 .subtitulo {
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
+    -fx-font-family: "Press Start 2P";
+    -fx-font-size: 11px;
     -fx-text-fill: #d0d0ff;
 }
 
 .info-label {
-    -fx-font-size: 16px;
+    -fx-font-family: "Press Start 2P";
+    -fx-font-size: 15px;
     -fx-text-fill: white;
 }
 
 .estado-label {
-    -fx-font-size: 16px;
+    -fx-font-family: "Press Start 2P";
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-text-fill: #00ff99;
 }
 
 .mensaje-label {
-    -fx-font-size: 14px;
+    -fx-font-family: "Press Start 2P";
+    -fx-font-size: 10px;
     -fx-text-fill: #87cefa;
 }
 
 .game-button {
+    -fx-font-family: "Press Start 2P";
     -fx-background-color: #5865f2;
     -fx-text-fill: white;
-    -fx-font-size: 14px;
+    -fx-font-size: 10px;
     -fx-font-weight: bold;
     -fx-background-radius: 12;
     -fx-cursor: hand;
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(0,0,0,0.4),
+            8,
+            0.3,
+            0,
+            2
+    );
 }
 
 .game-button:hover {
@@ -48,9 +68,10 @@
 }
 
 .danger-button {
+    -fx-font-family: "Press Start 2P";
     -fx-background-color: #d9534f;
     -fx-text-fill: white;
-    -fx-font-size: 14px;
+    -fx-font-size: 10px;
     -fx-font-weight: bold;
     -fx-background-radius: 12;
     -fx-cursor: hand;
@@ -65,13 +86,13 @@
     -fx-control-inner-background: #1e1e2f;
     -fx-border-color: #5865f2;
     -fx-border-radius: 12;
-    -fx-text-fill: white;
 }
 
 .list-cell {
+    -fx-font-family: "Press Start 2P";
     -fx-background-color: transparent;
     -fx-text-fill: white;
-    -fx-font-size: 13px;
+    -fx-font-size: 10px;
 }
 
 .list-cell:selected {
@@ -92,4 +113,18 @@
     -fx-border-radius: 20;
     -fx-border-color: #3f3f5c;
     -fx-border-width: 2;
+}
+
+.gif-container {
+    -fx-padding: 15;
+    -fx-background-color: rgba(255,255,255,0.05);
+    -fx-background-radius: 25;
+    -fx-effect: dropshadow(
+            gaussian,
+            #5865f2,
+            35,
+            0.8,
+            0,
+            0
+    );
 }
